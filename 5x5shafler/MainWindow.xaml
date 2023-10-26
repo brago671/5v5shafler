@@ -1,0 +1,82 @@
+﻿<Window x:Class="_5x5shafler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5x5shafler"
+        mc:Ignorable="d"
+        Title="i'm happy" Height="400" Width="800" ResizeMode="NoResize" Background="#FFFBF5F5">
+	<Window.Resources>
+		<Style TargetType="{x:Type ListViewItem}">
+			<Style.Resources>
+				<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#00000000"/>
+				<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#00000000"/>
+			</Style.Resources>
+		</Style>
+		<SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+		<SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+		<SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+		<SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+		<SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+		<SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+		<SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+		<SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+		<SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+
+	</Window.Resources>
+	<Grid ShowGridLines="False">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Label x:Name="Output" Content="Please select the players" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="800" Height="82" FontStyle="Oblique" OpacityMask="Black" Background="#FFFBF5F5" Grid.RowSpan="2"/>
+		<Label x:Name="TextBox1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Content="Team A" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+		<Label x:Name="TextBox2" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2"  FontSize="30" Content="Team B" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+		<ListView x:Name="ListBoxTeamA" MouseDoubleClick="ClickOnTeams" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="5,5,5,5" FontSize="20">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="{x:Type ListViewItem}">
+					<Setter Property="Focusable" Value="False"/>
+					<Setter Property="Background" Value="Transparent" />
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="{x:Type ListViewItem}">
+								<ContentPresenter />
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ListView.ItemContainerStyle>
+		</ListView>
+		<ListView x:Name="ListBoxTeamB" MouseDoubleClick="ClickOnTeams" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="2" Margin="5,5,5,5" FontSize="20">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="{x:Type ListViewItem}">
+					<Setter Property="Focusable" Value="False"/>
+					<Setter Property="Background" Value="Transparent" />
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="{x:Type ListViewItem}">
+								<ContentPresenter />
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ListView.ItemContainerStyle>
+		</ListView>
+		<Button  x:Name="btnSelectPlayers" Click="btnSelectPlayers_Click" Background="#5A99EB" Foreground="white" Content="Players" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" Width="68" Grid.Column="3" Margin="0,-2,0,0"/>
+		<Label x:Name ="lblPleyersSelected" Content="0/10" Grid.Column="3" HorizontalAlignment="Left" Margin="139,6,0,0" VerticalAlignment="Top" Width="79" FontSize="20"/>
+		<Button  Click="btnMakeTeams_Click" x:Name="btnGenerate" Background="#5EAE79" Foreground="white" Content="Teams by Skill" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="154" Grid.Column="1" Margin="158,-2,0,0" Grid.ColumnSpan="2"/>
+		<Label Content="Output:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="291" Grid.ColumnSpan="2" Background="#FFFBF5F5"/>
+		<Label Content="" x:Name="TeamARank" HorizontalAlignment="Left" Margin="75,20,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.342,0.31"/>
+		<Label Content="" x:Name="TeamBRank" HorizontalAlignment="Left" Margin="100,19,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.342,0.31" Grid.Column="3"/>
+		<Button  Click="btnMakeTeamsByOP_Click" x:Name="btnGenerateByOp" Background="#26694a" Foreground="white" Content="Teams By OP score" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="154" Grid.Column="2" Margin="112,-2,0,0" Grid.ColumnSpan="2"/>
+		<Button  Click="btnRandom_Click" x:Name="btnRandom" Background="#AC384C" Foreground="white" Content="Random" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="67" Grid.Column="1" Margin="91,-2,0,0"/>
+	</Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="_5x5shafler.AddNewPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5x5shafler"
+        mc:Ignorable="d"
+        Title="AddNewPlayer" Height="148" Width="279" ResizeMode="NoResize" Background="#FFFBF5F5">
+	<Grid>
+		<TextBox HorizontalAlignment="Left" Name="NickName" Margin="14,32,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+		<Label Content="Nickname"  HorizontalAlignment="Left" Margin="35,6,0,0" VerticalAlignment="Top"/>
+		<TextBox HorizontalAlignment="Left" Name="SkillLvl" Margin="145,32,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
+		<Label Content="skill lvl 1-5"   HorizontalAlignment="Left" Margin="145,1,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.275,0.478" Width="72"/>
+		<Button Content="Add" Click="addNewPlayer_Click" HorizontalAlignment="Center" Margin="0,79,0,0" VerticalAlignment="Top" Width="57" Height="23" RenderTransformOrigin="0.584,0.766"/>
+		<TextBox HorizontalAlignment="Left" x:Name="OPScore" Margin="23,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
+		<Label Content="Op Score"   HorizontalAlignment="Left" Margin="23,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.275,0.478" Width="72"/>
+
+	</Grid>
+</Window>
